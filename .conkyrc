@@ -1,0 +1,107 @@
+# Conky settings #
+background no
+update_interval 1 #refresh time 
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 2048
+#imlib_cache_size 0
+
+temperature_unit fahrenheit
+
+# Window specifications #
+
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+
+minimum_size 320 720
+maximum_width 320
+
+border_inner_margin 5
+border_outer_margin 5
+
+alignment tr#居中方向
+gap_x 25#左边距
+gap_y 25#顶部边距
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftfont caviar dreams:size=8
+xftalpha 0.5
+uppercase no
+temperature_unit celsius
+default_color FFFFFF
+
+#own_window_title clicky
+#lua_load ~/lua/clicky.lua
+#lua_draw_hook_pre main
+
+#lua_load ~/lua/luatest.lua
+#lua_draw_hook_pre foobar
+#************************************************************************
+TEXT
+#--------------------星期几---------------------------------------------
+${voffset 10}${color FF6600}${goto 25}${font 文泉驿微米黑:size=20}${time %A}         气温:${color FFFFFF}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ ZGSZ temperature temperature 30} °C
+#----------------------------分隔线---------------------------------------
+${voffset -10}${color FF6600}${hr}
+
+#--------------------年月日-----------------------------------------------
+${color FF6600}${goto 25}${font caviar dreams:size=16}${time %Y年%b%d日}${font}
+#--------------------时分秒------------------------------------------------
+${color FFFFFF} ${voffset -25}${alignr 50}${font caviar dreams:size=16}${time %H:%M:%S} ${font}
+#----------------------------分隔线---------------------------------------
+${voffset -10}${color FF6600}${hr}
+
+#----------------------------CPU状态---------------------------------------
+${voffset -20}${font caviar dreams:size=10}
+${color FF6600}${goto 25}CPU1${goto 100}CPU2 ${goto 175}CPU3 ${goto 250} CPU4
+${color FFFFFF}${goto 25}${cpu cpu0}%${color FFFFFF}${goto 100}${cpu cpu1}%${color FFFFFF}${goto 175}%${color FFFFFF}${goto 250}%
+#----------------------------分隔线---------------------------------------
+${voffset -10}${color FF6600}${hr}
+
+#----------------------------内存，硬盘---------------------------------------
+${color FF6600}${goto 25}RAM${goto 150}SWAP${goto 280}Disk
+${color FFFFFF}${goto 25}${memperc}%${goto 150}${swapperc}%${goto 280}${fs_used_perc /}%
+#----------------------------分隔线---------------------------------------
+${voffset -10}${color FF6600}${hr}
+
+# 列出排名前四的CPU消耗进程
+${color FF6600}${font :bold:size=9}${goto 25}APP${goto 155}PID${goto 285}CPU
+${color}${font}#
+${goto 25}${top name 1}${goto 150}${top pid 1}${goto 280}${top cpu 1}%
+${goto 25}${top name 2}${goto 150}${top pid 2}${goto 280}${top cpu 2}%
+${goto 25}${top name 3}${goto 150}${top pid 3}${goto 280}${top cpu 3}%
+${goto 25}${top name 4}${goto 150}${top pid 4}${goto 280}${top cpu 4}%
+#----------------------------分隔线---------------------------------------
+${voffset -10}${color FF6600}${hr}
+
+# 列出排名前四的内存消耗进程
+${color FF6600}${font :bold:size=9}${goto 25}APP${goto 155}PID${goto 285}MEM
+${color}${font}#
+${goto 25}${top name 1}${goto 150}${top pid 1}${goto 280}${top_mem mem 1}%
+${goto 25}${top name 2}${goto 150}${top pid 2}${goto 280}${top_mem mem 2}%
+${goto 25}${top name 3}${goto 150}${top pid 3}${goto 280}${top_mem mem 3}%
+${goto 25}${top name 4}${goto 150}${top pid 4}${goto 280}${top_mem mem 4}%
+#----------------------------分隔线---------------------------------------
+${voffset -10}${color FF6600}${hr}
+
+#${goto 25}把酒祝东风，且共从容，
+#${goto 25}垂杨紫陌洛城东,总是当时携手处，游遍芳丛。
+#${goto 25}聚散苦匆匆，此恨无穷,
+#${goto 25}今年花胜去年红,可惜明年花更好，知与谁同？
+
+${image /home/angel/picture/jianxin.jpg -p 15,500 -s 300x200}

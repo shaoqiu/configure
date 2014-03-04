@@ -193,7 +193,13 @@ Bundle 'vim-scripts/Tagbar.git'
 "ctrlp
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'konkashaoqiu/ctrlp-tags.git'
+
+"vim tools
 Bundle 'konkashaoqiu/vim-tools.git'
+
+"svn tools 
+Bundle 'konkashaoqiu/vim-svnlog.git'
+Bundle 'konkashaoqiu/vim-svncommit.git'
 
 "YouCompleteMe
 Bundle 'Valloric/YouCompleteMe'

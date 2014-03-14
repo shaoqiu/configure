@@ -67,6 +67,7 @@ nmap <leader><cr> o<Esc>
 "保存与退出
 nmap <leader>wa :wa<cr>
 nmap <leader>qa :qa<cr>
+nmap <leader>sh :sh<cr>
 
 ":help 当前光标的单词
 "注：<C-R><C-W> 可以将当前光标所在单词输入到cmdline中
@@ -202,6 +203,7 @@ Bundle 'konkashaoqiu/vim-svnlog.git'
 Bundle 'konkashaoqiu/vim-svncommit.git'
 
 "YouCompleteMe
+"安装方法，不要忘了后面的参数! ./install.sh --clang-completer
 Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin on

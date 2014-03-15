@@ -22,7 +22,13 @@ set completeopt+=menu
 set completeopt+=longest
 set completeopt-=preview  " 补全内容不以分割子窗口形式出现，只显示补全列表
 set switchbuf+=usetab,newtab "通过quickfix窗口打开文件时,在新的TAB中打开
+set t_ti= t_te= "退出VIM后，内容显示在终端屏幕，可以用于查看
 set relativenumber "使用相对行号
+" 插入模式/失去焦点时用绝对行号, 普通模式获取焦点时用相对行号
+autocmd FocusLost * :set norelativenumber number
+autocmd FocusGained * :set relativenumber
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
 
 "开启打印信息，打印信息会保存到/tmp/vim-debug
@@ -141,6 +147,14 @@ nnoremap <Leader>ff :CtrlPTags<cr>
 " Initialise list by a word under cursor
 nnoremap <Leader>fd :execute 'CtrlPTags ' . expand('<cword>')<cr>
 
+"completeopt
+"回车即选中当前项
+"inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+"上下左右键的行为 会显示其他信息
+"inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+"inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+"inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+"inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 "YouCompleteMe setting
 " 补全功能在注释中同样有效  

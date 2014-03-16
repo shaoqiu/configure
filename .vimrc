@@ -215,6 +215,7 @@ Bundle 'konkashaoqiu/vim-tools.git'
 "svn tools 
 Bundle 'konkashaoqiu/vim-svnlog.git'
 Bundle 'konkashaoqiu/vim-svncommit.git'
+Bundle 'konkashaoqiu/genycmconfig.git'
 
 "YouCompleteMe
 "安装方法，不要忘了后面的参数! ./install.sh --clang-completer

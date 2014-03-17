@@ -106,6 +106,10 @@ nmap tq :call QuickfixToggle()<cr>
 "要注释选择的文本，还得用 ";c<space>"
 nmap cm ;c<space>
 
+"Ag settings
+let g:agprg="ag --column --smart-case"
+nmap <leader>ag :Ag! <C-R><C-W><cr>
+
 "tagbar setting 变量，函数列表
 "tagbar 在左边显示，默认是在右边的。
 let tagbar_left               =1

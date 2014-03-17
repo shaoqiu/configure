@@ -123,7 +123,7 @@ let g:Gtags_OpenQuickfixWindow = 0
 "另一种是使用ctrlp的默认方式打开, "ctrl + p"
 "在工程比较小时,使用这种方式进行查找快速简单
 nmap ,, :CtrlP getcwd()<cr>
-set wildignore+=*/tmp/*,*/lib/*,*/libs/*,*.so,*.class,*.swp,*.zip,*.png,*.jpg,*.gif,*.apk,*.dex,*.ap_
+set wildignore+=*/tmp/*,*/lib/*,*/libs/*,*.so,*.class,*.swp,*.zip,*.png,*.jpg,*.gif,*.apk,*.dex,*.ap_,*/HTML/*,HTML/*,*.bin,*/bin/*,*.o,*.JPG
 "open file in new table instead of buffer
 let g:ctrlp_prompt_mappings = {
 			\ 'AcceptSelection("e")': [],

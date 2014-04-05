@@ -217,8 +217,8 @@ Bundle 'konkashaoqiu/ctrlp-tags.git'
 Bundle 'konkashaoqiu/vim-tools.git'
 
 "svn tools 
-Bundle 'konkashaoqiu/vim-svnlog.git'
-Bundle 'konkashaoqiu/vim-svncommit.git'
+Bundle 'konkashaoqiu/svnlog.git'
+Bundle 'konkashaoqiu/svncommit.git'
 Bundle 'konkashaoqiu/genycmconfig.git'
 
 "YouCompleteMe

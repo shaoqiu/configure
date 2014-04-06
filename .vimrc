@@ -75,6 +75,9 @@ nnoremap <leader>wa :wa<cr>
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>sh :sh<cr>
 
+"edit vimrc
+nnoremap <leader>ev :tabedit $MYVIMRC<cr>
+
 ":help 当前光标的单词
 "注：<C-R><C-W> 可以将当前光标所在单词输入到cmdline中
 nnoremap <leader>h :h <C-R><C-W><cr>
@@ -103,6 +106,10 @@ nnoremap tq :call QuickfixToggle()<cr>
 "Ag settings
 let g:agprg="ag --column --smart-case"
 nnoremap <leader>ag :Ag! <C-R><C-W><cr>
+
+
+" toggle comments
+nnoremap cm :call NERDComment(0, "toggle")<cr>
 
 "tagbar setting 变量，函数列表
 "tagbar 在左边显示，默认是在右边的。

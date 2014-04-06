@@ -77,10 +77,11 @@ nnoremap <leader>sh :sh<cr>
 
 "edit vimrc
 nnoremap <leader>ev :tabedit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 ":help 当前光标的单词
 "注：<C-R><C-W> 可以将当前光标所在单词输入到cmdline中
-nnoremap <leader>h :h <C-R><C-W><cr>
+nnoremap <leader>he :h <C-R><C-W><cr>
 
 "按方向键切换窗口
 nnoremap <Left> <C-W>h
@@ -98,6 +99,13 @@ nnoremap te :tabedit
 "quickfix 窗口开关
 nnoremap tq :call QuickfixToggle()<cr>
 
+"给光标下的单词加上引号
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>wwl
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>wwl
+
+"goto end of line and start of line
+nnoremap <leader>hh 1000h
+nnoremap <leader>ll 1000l
 """""""""""""""""""""""shortcut setting""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

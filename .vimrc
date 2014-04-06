@@ -68,54 +68,48 @@ syntax enable "自动语法高亮
 let mapleader=";" "设置前导键为 ;
 
 "插入一个空行
-nmap <leader><cr> o<Esc>
+nnoremap <leader><cr> o<Esc>
 
 "保存与退出
-nmap <leader>wa :wa<cr>
-nmap <leader>qa :qa<cr>
-nmap <leader>sh :sh<cr>
+nnoremap <leader>wa :wa<cr>
+nnoremap <leader>qa :qa<cr>
+nnoremap <leader>sh :sh<cr>
 
 ":help 当前光标的单词
 "注：<C-R><C-W> 可以将当前光标所在单词输入到cmdline中
-nmap <leader>h :h <C-R><C-W><cr>
+nnoremap <leader>h :h <C-R><C-W><cr>
 
 "按方向键切换窗口
-nmap <Left> <C-W>h
-nmap <Right> <C-W>l
-nmap <Up> <C-W>k
-nmap <Down> <C-W>j
+nnoremap <Left> <C-W>h
+nnoremap <Right> <C-W>l
+nnoremap <Up> <C-W>k
+nnoremap <Down> <C-W>j
 
 "切换标签页
-nmap <C-H> gT
-nmap <C-L> gt
+nnoremap <C-H> gT
+nnoremap <C-L> gt
 
 "新建一个标签页
-nmap te :tabedit 
+nnoremap te :tabedit 
 
 "quickfix 窗口开关
-nmap tq :call QuickfixToggle()<cr>
+nnoremap tq :call QuickfixToggle()<cr>
 
 """""""""""""""""""""""shortcut setting""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""plugin setting""""""""""""""""""""""""""""""
-"NERD_Commenter setting 注释
-"现在已经MAP成 cm 进行注释
-"不过cm 只能进行单行的注释与反注释
-"要注释选择的文本，还得用 ";c<space>"
-nmap cm ;c<space>
-
 "Ag settings
 let g:agprg="ag --column --smart-case"
-nmap <leader>ag :Ag! <C-R><C-W><cr>
+nnoremap <leader>ag :Ag! <C-R><C-W><cr>
 
 "tagbar setting 变量，函数列表
 "tagbar 在左边显示，默认是在右边的。
 let tagbar_left               =1
 let tagbar_width              =30
 let g:tagbar_show_linenumbers = 1
-nmap tt :TagbarToggle<cr><C-W>h
+nnoremap tt :TagbarToggle<cr><C-W>h
 
 "gtags 搜索时不打开quickfix 窗口
 let g:Gtags_OpenQuickfixWindow = 0
@@ -126,7 +120,7 @@ let g:Gtags_OpenQuickfixWindow = 0
 "在一个工程目录比较大的时候,使用这种方式进行查找比较快速
 "另一种是使用ctrlp的默认方式打开, "ctrl + p"
 "在工程比较小时,使用这种方式进行查找快速简单
-nmap ,, :CtrlP getcwd()<cr>
+nnoremap ,, :CtrlP getcwd()<cr>
 set wildignore+=*/tmp/*,*/lib/*,*/libs/*,*.so,*.class,*.swp,*.zip,*.png,*.jpg,*.gif,*.apk,*.dex,*.ap_
 "open file in new table instead of buffer
 let g:ctrlp_prompt_mappings = {
@@ -283,7 +277,7 @@ function! AlignAssignments()
     endfor
 endfunction
 
-nmap <silent>  <leader>=  :call AlignAssignments()<CR>
+nnoremap <silent>  <leader>=  :call AlignAssignments()<CR>
 """""""""""""""""""""""my function""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -325,11 +319,11 @@ endfunction
 au BufEnter /* call LoadCscope()
 
 "查找定义
-nmap <leader>fg :cs find g <C-R><C-W><CR>
+nnoremap <leader>fg :cs find g <C-R><C-W><CR>
 "查找引用
-nmap <leader>fc :cs find c <C-R><C-W><CR>
+nnoremap <leader>fc :cs find c <C-R><C-W><CR>
 "查找符号
-nmap <leader>fs :cs find s <C-R><C-W><CR>
+nnoremap <leader>fs :cs find s <C-R><C-W><CR>
 "0或者s   —— 查找这个C符号
 "1或者g  —— 查找这个定义
 "2或者d  —— 查找被这个函数调用的函数（们）

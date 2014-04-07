@@ -24,21 +24,26 @@ set completeopt-=preview  " 补全内容不以分割子窗口形式出现，只�
 set switchbuf+=usetab,newtab "通过quickfix窗口打开文件时,在新的TAB中打开
 set t_ti= t_te= "退出VIM后，内容显示在终端屏幕，可以用于查看
 set relativenumber "使用相对行号
+
 " 插入模式/失去焦点时用绝对行号, 普通模式获取焦点时用相对行号
-autocmd FocusLost * :set norelativenumber number
-autocmd FocusGained * :set relativenumber
-autocmd InsertEnter * :set norelativenumber number
-autocmd InsertLeave * :set relativenumber
+augroup SetNumber
+	autocmd!
+	autocmd FocusLost * :set norelativenumber number
+	autocmd FocusGained * :set relativenumber
+	autocmd InsertEnter * :set norelativenumber number
+	autocmd InsertLeave * :set relativenumber
+augroup END
+
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
 
 "开启打印信息，打印信息会保存到/tmp/vim-debug
 let g:vim_debug_enable = 1
 
 ".vimrc 文件有更改时，重新加载生效
-augroup reload_vimrc " {
+augroup reload_vimrc 
 	autocmd!
 	autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+augroup END 
 
 " 配置多语言环境
 if has("multi_byte")
@@ -66,6 +71,8 @@ syntax enable "自动语法高亮
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""shortcut setting""""""""""""""""""""""""""""""
 let mapleader=";" "设置前导键为 ;
+
+inoremap ;; <esc>
 
 "插入一个空行
 nnoremap <leader><cr> o<Esc>
@@ -106,6 +113,7 @@ nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>wwl
 "goto end of line and start of line
 nnoremap <leader>hh 1000h
 nnoremap <leader>ll 1000l
+
 """""""""""""""""""""""shortcut setting""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

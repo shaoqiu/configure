@@ -24,21 +24,26 @@ set completeopt-=preview  " 补全内容不以分割子窗口形式出现，只�
 set switchbuf+=usetab,newtab "通过quickfix窗口打开文件时,在新的TAB中打开
 set t_ti= t_te= "退出VIM后，内容显示在终端屏幕，可以用于查看
 set relativenumber "使用相对行号
+
 " 插入模式/失去焦点时用绝对行号, 普通模式获取焦点时用相对行号
-autocmd FocusLost * :set norelativenumber number
-autocmd FocusGained * :set relativenumber
-autocmd InsertEnter * :set norelativenumber number
-autocmd InsertLeave * :set relativenumber
+augroup SetNumber
+	autocmd!
+	autocmd FocusLost * :set norelativenumber number
+	autocmd FocusGained * :set relativenumber
+	autocmd InsertEnter * :set norelativenumber number
+	autocmd InsertLeave * :set relativenumber
+augroup END
+
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
 
 "开启打印信息，打印信息会保存到/tmp/vim-debug
 let g:vim_debug_enable = 1
 
 ".vimrc 文件有更改时，重新加载生效
-augroup reload_vimrc " {
+augroup reload_vimrc 
 	autocmd!
 	autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+augroup END 
 
 " 配置多语言环境
 if has("multi_byte")
@@ -67,51 +72,67 @@ syntax enable "自动语法高亮
 """""""""""""""""""""""shortcut setting""""""""""""""""""""""""""""""
 let mapleader=";" "设置前导键为 ;
 
+inoremap ;; <esc>
+
 "插入一个空行
-nmap <leader><cr> o<Esc>
+nnoremap <leader><cr> o<Esc>
 
 "保存与退出
-nmap <leader>wa :wa<cr>
-nmap <leader>qa :qa<cr>
-nmap <leader>sh :sh<cr>
+nnoremap <leader>wa :wa<cr>
+nnoremap <leader>qa :qa<cr>
+nnoremap <leader>sh :sh<cr>
+
+"edit vimrc
+nnoremap <leader>ev :tabedit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 ":help 当前光标的单词
 "注：<C-R><C-W> 可以将当前光标所在单词输入到cmdline中
-nmap <leader>h :h <C-R><C-W><cr>
+nnoremap <leader>he :h <C-R><C-W><cr>
 
 "按方向键切换窗口
-nmap <Left> <C-W>h
-nmap <Right> <C-W>l
-nmap <Up> <C-W>k
-nmap <Down> <C-W>j
+nnoremap <Left> <C-W>h
+nnoremap <Right> <C-W>l
+nnoremap <Up> <C-W>k
+nnoremap <Down> <C-W>j
 
 "切换标签页
-nmap <C-H> gT
-nmap <C-L> gt
+nnoremap <C-H> gT
+nnoremap <C-L> gt
 
 "新建一个标签页
-nmap te :tabedit 
+nnoremap te :tabedit 
 
 "quickfix 窗口开关
-nmap tq :call QuickfixToggle()<cr>
+nnoremap tq :call QuickfixToggle()<cr>
+
+"给光标下的单词加上引号
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>wwl
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>wwl
+
+"goto end of line and start of line
+nnoremap <leader>hh 1000h
+nnoremap <leader>ll 1000l
 
 """""""""""""""""""""""shortcut setting""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""plugin setting""""""""""""""""""""""""""""""
-"NERD_Commenter setting 注释
-"现在已经MAP成 cm 进行注释
-"不过cm 只能进行单行的注释与反注释
-"要注释选择的文本，还得用 ";c<space>"
-nmap cm ;c<space>
+"Ag settings
+let g:agprg="ag --column --smart-case"
+nnoremap <leader>ag :Ag! <C-R><C-W><cr>
+
+
+" toggle comments
+nnoremap cm :call NERDComment(0, "toggle")<cr>
 
 "tagbar setting 变量，函数列表
 "tagbar 在左边显示，默认是在右边的。
 let tagbar_left               =1
 let tagbar_width              =30
 let g:tagbar_show_linenumbers = 1
-nmap tt :TagbarToggle<cr><C-W>h
+nnoremap tt :TagbarToggle<cr><C-W>h
 
 "gtags 搜索时不打开quickfix 窗口
 let g:Gtags_OpenQuickfixWindow = 0
@@ -213,8 +234,8 @@ Bundle 'konkashaoqiu/ctrlp-tags.git'
 Bundle 'konkashaoqiu/vim-tools.git'
 
 "svn tools 
-Bundle 'konkashaoqiu/vim-svnlog.git'
-Bundle 'konkashaoqiu/vim-svncommit.git'
+Bundle 'konkashaoqiu/svnlog.git'
+Bundle 'konkashaoqiu/svncommit.git'
 Bundle 'konkashaoqiu/genycmconfig.git'
 
 "YouCompleteMe
@@ -279,7 +300,7 @@ function! AlignAssignments()
     endfor
 endfunction
 
-nmap <silent>  <leader>=  :call AlignAssignments()<CR>
+nnoremap <silent>  <leader>=  :call AlignAssignments()<CR>
 """""""""""""""""""""""my function""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -321,11 +342,11 @@ endfunction
 au BufEnter /* call LoadCscope()
 
 "查找定义
-nmap <leader>fg :cs find g <C-R><C-W><CR>
+nnoremap <leader>fg :cs find g <C-R><C-W><CR>
 "查找引用
-nmap <leader>fc :cs find c <C-R><C-W><CR>
+nnoremap <leader>fc :cs find c <C-R><C-W><CR>
 "查找符号
-nmap <leader>fs :cs find s <C-R><C-W><CR>
+nnoremap <leader>fs :cs find s <C-R><C-W><CR>
 "0或者s   —— 查找这个C符号
 "1或者g  —— 查找这个定义
 "2或者d  —— 查找被这个函数调用的函数（们）

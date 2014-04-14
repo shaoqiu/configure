@@ -143,8 +143,8 @@ let g:Gtags_OpenQuickfixWindow = 0
 "在一个工程目录比较大的时候,使用这种方式进行查找比较快速
 "另一种是使用ctrlp的默认方式打开, "ctrl + p"
 "在工程比较小时,使用这种方式进行查找快速简单
-nnoremap ,, :CtrlP getcwd()<cr>
-set wildignore+=*/tmp/*,*/lib/*,*/libs/*,*.so,*.class,*.swp,*.zip,*.png,*.jpg,*.gif,*.apk,*.dex,*.ap_
+nmap ,, :CtrlP getcwd()<cr>
+set wildignore+=*/tmp/*,*/lib/*,*/libs/*,*.so,*.class,*.swp,*.zip,*.png,*.jpg,*.gif,*.apk,*.dex,*.ap_,*/HTML/*,HTML/*,*.bin,*/bin/*,*.o,*.JPG
 "open file in new table instead of buffer
 let g:ctrlp_prompt_mappings = {
 			\ 'AcceptSelection("e")': [],

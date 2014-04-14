@@ -195,6 +195,11 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extr
 "调用补全功能的快捷键
 let g:ycm_key_invoke_completion = '<C-O>'
 
+
+"markdown setting 
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_initial_foldlevel=1
+let g:vim_markdown_no_default_key_mappings=1
 """""""""""""""""""""""plugin setting""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -241,6 +246,9 @@ Bundle 'konkashaoqiu/genycmconfig.git'
 "YouCompleteMe
 "安装方法，不要忘了后面的参数! ./install.sh --clang-completer
 Bundle 'Valloric/YouCompleteMe'
+
+"markdown 
+Bundle 'plasticboy/vim-markdown'
 
 filetype plugin on
 filetype plugin indent on

@@ -226,6 +226,7 @@ Bundle  'jiangmiao/auto-pairs.git'
 Bundle 'The-NERD-Commenter'
 
 "manager itself
+"git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 Bundle 'gmarik/vundle'
 
 "tagbar

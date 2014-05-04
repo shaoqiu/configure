@@ -1,5 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""base setting""""""""""""""""""""""""""""""
+hi Pmenu ctermbg=gray "设置补全菜单的背景色
+hi PmenuSel ctermbg=blue 
 set nocompatible "关闭VI 兼容模式
 set autowrite "切换编辑的文件时，自动保存当前正在编辑的文件
 set number	"显示行号

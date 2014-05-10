@@ -26,6 +26,7 @@ set completeopt-=preview  " 补全内容不以分割子窗口形式出现，只�
 set switchbuf+=usetab,newtab "通过quickfix窗口打开文件时,在新的TAB中打开
 set t_ti= t_te= "退出VIM后，内容显示在终端屏幕，可以用于查看
 set relativenumber "使用相对行号
+colorscheme desert
 
 " 插入模式/失去焦点时用绝对行号, 普通模式获取焦点时用相对行号
 augroup SetNumber
@@ -135,9 +136,6 @@ let tagbar_left               =1
 let tagbar_width              =30
 let g:tagbar_show_linenumbers = 1
 nnoremap tt :TagbarToggle<cr><C-W>h
-
-"gtags 搜索时不打开quickfix 窗口
-let g:Gtags_OpenQuickfixWindow = 0
 
 "ctrlp setting 文件查找
 "可以使用两种方式来打开ctrlp

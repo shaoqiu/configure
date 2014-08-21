@@ -4,7 +4,7 @@ hi Pmenu ctermbg=gray "设置补全菜单的背景色
 hi PmenuSel ctermbg=blue 
 set nocompatible "关闭VI 兼容模式
 set autowrite "切换编辑的文件时，自动保存当前正在编辑的文件
-set number	"显示行号
+"set number	"显示行号
 set ruler	"打开状态栏标尺
 set shiftwidth=4 "设定>> 命令移动时的宽度
 set softtabstop=4 "这将会让一个制表符只插入4个字符宽度的缩进
@@ -25,17 +25,17 @@ set completeopt+=longest
 set completeopt-=preview  " 补全内容不以分割子窗口形式出现，只显示补全列表
 set switchbuf+=usetab,newtab "通过quickfix窗口打开文件时,在新的TAB中打开
 set t_ti= t_te= "退出VIM后，内容显示在终端屏幕，可以用于查看
-set relativenumber "使用相对行号
+"set relativenumber "使用相对行号
 colorscheme desert
 
 " 插入模式/失去焦点时用绝对行号, 普通模式获取焦点时用相对行号
-augroup SetNumber
-	autocmd!
-	autocmd FocusLost * :set norelativenumber number
-	autocmd FocusGained * :set relativenumber
-	autocmd InsertEnter * :set norelativenumber number
-	autocmd InsertLeave * :set relativenumber
-augroup END
+"augroup SetNumber
+	"autocmd!
+	"autocmd FocusLost * :set norelativenumber number
+	"autocmd FocusGained * :set relativenumber
+	"autocmd InsertEnter * :set norelativenumber number
+	"autocmd InsertLeave * :set relativenumber
+"augroup END
 
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
 
@@ -246,7 +246,7 @@ Bundle 'konkashaoqiu/genycmconfig.git'
 
 "YouCompleteMe
 "安装方法，不要忘了后面的参数! ./install.sh --clang-completer
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 
 "markdown 
 Bundle 'plasticboy/vim-markdown'

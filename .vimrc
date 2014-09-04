@@ -4,11 +4,12 @@ hi Pmenu ctermbg=gray "设置补全菜单的背景色
 hi PmenuSel ctermbg=blue 
 set nocompatible "关闭VI 兼容模式
 set autowrite "切换编辑的文件时，自动保存当前正在编辑的文件
-"set number	"显示行号
+set number	"显示行号
 set ruler	"打开状态栏标尺
 set shiftwidth=4 "设定>> 命令移动时的宽度
 set softtabstop=4 "这将会让一个制表符只插入4个字符宽度的缩进
 set tabstop=4	"设定TAB 长度为4
+set expandtab  "将TAB扩展为4个空格
 set nobackup	"覆盖文件时不备份
 set showcmd    "将输入的命令显示出来，便于查看当前输入的信息
 set ignorecase smartcase "搜索时忽略大小写

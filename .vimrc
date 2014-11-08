@@ -235,19 +235,18 @@ Bundle 'vim-scripts/Tagbar.git'
 
 "ctrlp
 Bundle 'kien/ctrlp.vim.git'
-Bundle 'konkashaoqiu/ctrlp-tags.git'
+Bundle 'shaoqiu/ctrlp-tags.git'
 
 "vim tools
-Bundle 'konkashaoqiu/vim-tools.git'
+Bundle 'shaoqiu/vim-tools.git'
 
 "svn tools 
-Bundle 'konkashaoqiu/svnlog.git'
-Bundle 'konkashaoqiu/svncommit.git'
-Bundle 'konkashaoqiu/genycmconfig.git'
+Bundle 'shaoqiu/svnlog.git'
+Bundle 'shaoqiu/svncommit.git'
 
 "YouCompleteMe
 "安装方法，不要忘了后面的参数! ./install.sh --clang-completer
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 "markdown 
 Bundle 'plasticboy/vim-markdown'

@@ -49,6 +49,7 @@ augroup reload_vimrc
 	autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END 
 
+
 " 配置多语言环境
 if has("multi_byte")
 	" UTF-8 编码
@@ -186,7 +187,7 @@ let g:ycm_confirm_extra_conf=0
 " 从TAGS 文件中搜集匹配的符号
 let g:ycm_collect_identifiers_from_tags_files=1  
 " 从第一个键入字符就开始罗列匹配项  
-let g:ycm_min_num_of_chars_for_completion=2  
+let g:ycm_min_num_of_chars_for_completion=1  
 " 禁止缓存匹配项，每次都重新生成匹配项  
 let g:ycm_cache_omnifunc=0  
 " 语法关键字补全              
@@ -196,6 +197,8 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extr
 "调用补全功能的快捷键
 let g:ycm_key_invoke_completion = '<C-O>'
 
+"javacomplete setting
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
 
 "markdown setting 
 let g:vim_markdown_folding_disabled=1
@@ -217,7 +220,8 @@ call vundle#rc()
 Bundle 'OmniCppComplete'
 
 "search pattern in all pwd files 
-"nedd pacman -S the_silver_searcher
+"archlinux 'pacman -S the_silver_searcher'
+"ubuntu 'apt-get install silversearcher-ag'
 Bundle 'rking/ag.vim'
 
 "auto pairs alt + p  close the plugin
@@ -235,19 +239,21 @@ Bundle 'vim-scripts/Tagbar.git'
 
 "ctrlp
 Bundle 'kien/ctrlp.vim.git'
-Bundle 'konkashaoqiu/ctrlp-tags.git'
+Bundle 'shaoqiu/ctrlp-tags.git'
 
 "vim tools
-Bundle 'konkashaoqiu/vim-tools.git'
+Bundle 'shaoqiu/vim-tools.git'
 
 "svn tools 
-Bundle 'konkashaoqiu/svnlog.git'
-Bundle 'konkashaoqiu/svncommit.git'
-Bundle 'konkashaoqiu/genycmconfig.git'
+Bundle 'shaoqiu/svnlog.git'
+Bundle 'shaoqiu/svncommit.git'
 
 "YouCompleteMe
 "安装方法，不要忘了后面的参数! ./install.sh --clang-completer
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
+
+"autocomplete for java
+Bundle 'javacomplete'
 
 "markdown 
 Bundle 'plasticboy/vim-markdown'

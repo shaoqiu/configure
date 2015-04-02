@@ -23,7 +23,7 @@ set scrolloff=3 "光标距顶部或底部为N行时，开始滚屏
 set laststatus=2 "状态栏的高度
 set completeopt+=menu
 set completeopt+=longest
-set completeopt-=preview  " 补全内容不以分割子窗口形式出现，只显示补全列表
+set completeopt+=preview  " 补全内容不以分割子窗口形式出现，只显示补全列表
 set switchbuf+=usetab,newtab "通过quickfix窗口打开文件时,在新的TAB中打开
 set t_ti= t_te= "退出VIM后，内容显示在终端屏幕，可以用于查看
 "set relativenumber "使用相对行号
@@ -67,8 +67,8 @@ endif
 
 filetype plugin on "自动检测文件类型
 filetype plugin indent on "自动根据文件类型进行缩进
-syntax enable "自动语法高亮
-"highlight LineNr ctermfg=0 "设置行号的颜色
+syntax enable "语法高亮
+highlight LineNr ctermfg=7 "设置行号的颜色
 """""""""""""""""""""""base setting""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -112,8 +112,8 @@ nnoremap te :tabedit
 nnoremap tq :call QuickfixToggle()<cr>
 
 "给光标下的单词加上引号
-nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>wwl
-nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>wwl
+nnoremap "" viw<esc>a"<esc>hbi"<esc>wwl
+nnoremap '' viw<esc>a'<esc>hbi'<esc>wwl
 
 "goto end of line and start of line
 nnoremap <leader>hh 1000h
@@ -164,6 +164,7 @@ let g:ctrlp_working_path_mode = 'ra'
 "最大数量default为10000,怪不得当搜索那些非常大的工程时
 "会出现搜索不到的情况
 let g:ctrlp_max_files = 0
+
 "ctrlp-tags setting
 let g:ctrlp_extensions = ['tags']
 nnoremap <Leader>ff :CtrlPTags<cr>
@@ -257,6 +258,9 @@ Bundle 'javacomplete'
 
 "markdown 
 Bundle 'plasticboy/vim-markdown'
+
+"multiple cursors edit
+Bundle 'terryma/vim-multiple-cursors'
 
 filetype plugin on
 filetype plugin indent on

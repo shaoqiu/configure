@@ -199,7 +199,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extr
 let g:ycm_key_invoke_completion = '<C-O>'
 
 "javacomplete setting
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
+"autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
 
 "markdown setting 
 let g:vim_markdown_folding_disabled=1
@@ -254,7 +254,7 @@ Bundle 'shaoqiu/svncommit.git'
 Bundle 'Valloric/YouCompleteMe'
 
 "autocomplete for java
-Bundle 'javacomplete'
+"Bundle 'javacomplete'
 
 "markdown 
 Bundle 'plasticboy/vim-markdown'

@@ -125,9 +125,16 @@ nnoremap <leader>ll 1000l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""plugin setting""""""""""""""""""""""""""""""
 "Ag settings
-let g:agprg="ag --column --smart-case"
+let g:ag_prg="ag --column --smart-case"
 nnoremap <leader>ag :Ag! <C-R><C-W><cr>
 
+
+"Gtags settings
+"let g:Gtags_OpenQuickfixWindow=1
+"查找定义
+nnoremap <leader>gd :Gtags <C-R><C-W><cr>
+"查找引用
+nnoremap <leader>gr :Gtags -r <C-R><C-W><cr>
 
 " toggle comments
 nnoremap cm :call NERDComment(0, "toggle")<cr>
@@ -242,6 +249,9 @@ Bundle 'vim-scripts/Tagbar.git'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'shaoqiu/ctrlp-tags.git'
 
+"global tools
+Bundle 'vim-scripts/gtags.vim'
+
 "vim tools
 Bundle 'shaoqiu/vim-tools.git'
 
@@ -275,7 +285,8 @@ function! QuickfixToggle()
 		cclose
 		unlet g:qfix_win
 	else
-		copen 10
+		"copen 10
+        tab copen
 		let g:qfix_win = bufnr("$")
 	endif
 endfunction

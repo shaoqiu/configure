@@ -131,10 +131,12 @@ nnoremap <leader>ag :Ag! <C-R><C-W><cr>
 
 "Gtags settings
 "let g:Gtags_OpenQuickfixWindow=1
-"查找定义
+"查找函数定义
 nnoremap <leader>gd :Gtags <C-R><C-W><cr>
-"查找引用
+"查找函数引用
 nnoremap <leader>gr :Gtags -r <C-R><C-W><cr>
+"查找字符串引用
+nnoremap <leader>gs :Gtags -g <C-R><C-W><cr>
 
 " toggle comments
 nnoremap cm :call NERDComment(0, "toggle")<cr>
@@ -285,8 +287,8 @@ function! QuickfixToggle()
 		cclose
 		unlet g:qfix_win
 	else
-		"copen 10
-        tab copen
+        copen 10
+        "tab copen
 		let g:qfix_win = bufnr("$")
 	endif
 endfunction

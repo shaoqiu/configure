@@ -17,4 +17,8 @@ git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
 
 cd ~/.vim/bundle/YouCompleteMe
-./install.sh --clang-completer
+if [[ ! -f ./third_party/ycmd/build.py ]]; then
+    git submodule update --init --recursive
+fi
+
+./install.py --clang-completer

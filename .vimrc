@@ -130,7 +130,7 @@ nnoremap <leader>ag :Ag! <C-R><C-W><cr>
 
 
 "Gtags settings
-"let g:Gtags_OpenQuickfixWindow=1
+let g:Gtags_OpenQuickfixWindow=0
 "查找函数定义
 nnoremap <leader>gd :Gtags <C-R><C-W><cr>
 "查找函数引用
@@ -282,16 +282,30 @@ filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""my function""""""""""""""""""""""""""""""""""
+
+let g:quickfix_is_open = 0
 function! QuickfixToggle()
-	if exists("g:qfix_win") 
-		cclose
-		unlet g:qfix_win
-	else
-        copen 10
-        "tab copen
-		let g:qfix_win = bufnr("$")
-	endif
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+        execute g:quickfix_return_to_window . "wincmd w"
+    else
+        let g:quickfix_return_to_window = winnr()
+        copen
+        let g:quickfix_is_open = 1
+    endif
 endfunction
+
+"function! QuickfixToggle()
+	"if exists("g:qfix_win") 
+		"cclose
+		"unlet g:qfix_win
+	"else
+        "copen 10
+        ""tab copen
+		"let g:qfix_win = bufnr("$")
+	"endif
+"endfunction
 
 function! AlignAssignments()
     "Patterns needed to locate assignment operators...

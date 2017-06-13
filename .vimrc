@@ -140,6 +140,7 @@ nnoremap <leader>gs :Gtags -g <C-R><C-W><cr>
 
 " toggle comments
 nnoremap cm :call NERDComment(0, "toggle")<cr>
+nnoremap tn :NERDTreeToggle<CR>
 
 "tagbar setting 变量，函数列表
 "tagbar 在左边显示，默认是在右边的。
@@ -155,7 +156,7 @@ nnoremap tt :TagbarToggle<cr><C-W>h
 "另一种是使用ctrlp的默认方式打开, "ctrl + p"
 "在工程比较小时,使用这种方式进行查找快速简单
 nmap ,, :CtrlP getcwd()<cr>
-set wildignore+=*/tmp/*,*/lib/*,*/libs/*,*.so,*.class,*.swp,*.zip,*.png,*.jpg,*.gif,*.apk,*.dex,*.ap_,*/HTML/*,HTML/*,*.bin,*/bin/*,*.o,*.JPG
+set wildignore+=*.so,*.class,*.swp,*.zip,*.png,*.jpg,*.gif,*.apk,*.dex,*.ap_,*/HTML/*,HTML/*,*.bin,*/bin/*,*.o,*.JPG
 "open file in new table instead of buffer
 let g:ctrlp_prompt_mappings = {
 			\ 'AcceptSelection("e")': [],
@@ -173,6 +174,8 @@ let g:ctrlp_working_path_mode = 'ra'
 "最大数量default为10000,怪不得当搜索那些非常大的工程时
 "会出现搜索不到的情况
 let g:ctrlp_max_files = 0
+let g:ctrlp_max_height = 15
+let g:ctrlp_match_window_reversed = 0
 
 "ctrlp-tags setting
 let g:ctrlp_extensions = ['tags']
@@ -239,6 +242,7 @@ Bundle  'jiangmiao/auto-pairs.git'
 
 "NERD_Commenter 注释方法为  ";c<space>"  取消注释也一样
 Bundle 'The-NERD-Commenter'
+Bundle 'scrooloose/nerdtree'
 
 "manager itself
 "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
